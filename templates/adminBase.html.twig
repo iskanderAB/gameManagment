@@ -312,10 +312,10 @@
                         <li><a href="{{path('Organisateurlist')}}"> Organisateurs </a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="fa fa-calendar-check-o"></i><span>Shop</span></a></li>
-                <li><a href="#"><i class="fa fa-list-ul"></i><span>Event</span></a></li>
+                <li><a href="{{path('app_admin')}}"><i class="fa fa-calendar-check-o"></i><span>Shop</span></a></li>
+                <li><a href="{{path('app_admin')}}"><i class="fa fa-list-ul"></i><span>Event</span></a></li>
                 <li><a href="{{path('app_game_index')}}"><i class="icon-tag"></i><span>Match</span></a></li>
-                <li><a href={{ path('app_team_index') }}#"><i class="fa fa-user"></i><span>Teams</span></a></li>
+                <li><a href={{ path('app_team_index') }}><i class="fa fa-user"></i><span>Teams</span></a></li>
                 <li>
                     <a href="javascript:void(0)" class="has-arrow arrow-c"><i class="fa fa-lock"></i><span>Authentication</span></a>
                     <ul>
@@ -356,17 +356,13 @@
 
 {% block js %}
 
-    <script src="{{ asset('AdminPanel/asset/bundles/lib.vendor.bundle.js')}}"></script>
-    <script src="{{ asset('AdminPanel/asset/bundles/apexcharts.bundle.js')}}"></script>
-    <script src="{{ asset('AdminPanel/asset/bundles/counterup.bundle.js')}}"></script>
-    <script src="{{ asset('AdminPanel/asset/bundles/knobjs.bundle.js')}}"></script>
-    <script src="{{ asset('AdminPanel/asset/bundles/c3.bundle.js')}}"></script>
-    <script src="{{ asset('AdminPanel/asset/js/core.js')}}"></script>
-    <script src="{{ asset('AdminPanel/asset/js/page/project-index.js')}}"></script>
-
-
-
-
+<script src="{{ asset('AdminPanel/asset/bundles/lib.vendor.bundle.js')}}"></script>
+<script src="{{ asset('AdminPanel/asset/bundles/apexcharts.bundle.js')}}"></script>
+<script src="{{ asset('AdminPanel/asset/bundles/counterup.bundle.js')}}"></script>
+<script src="{{ asset('AdminPanel/asset/bundles/knobjs.bundle.js')}}"></script>
+<script src="{{ asset('AdminPanel/asset/bundles/c3.bundle.js')}}"></script>
+<script src="{{ asset('AdminPanel/asset/js/core.js')}}"></script>
+<script src="{{ asset('AdminPanel/asset/js/page/project-index.js')}}"></script>
 </body>
 {% endblock %}
 

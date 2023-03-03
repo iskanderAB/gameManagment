@@ -46,7 +46,7 @@ class AdminPanelController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_organisator_show', methods: ['GET'])]
+    #[Route('organisateur/{id}', name: 'app_organisator_show', methods: ['GET'])]
     public function show(User $user): Response
     {
 
@@ -55,7 +55,7 @@ class AdminPanelController extends AbstractController
 
         ]);
     }
-    #[Route('/{id}', name: 'app_organisator_delete', methods: ['POST'])]
+    #[Route('organisateur/{id}', name: 'app_organisator_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
@@ -113,7 +113,7 @@ class AdminPanelController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/editOrganisator', name: 'app_organisator_edit', methods: ['GET', 'POST'])]
+    #[Route('organisateur/{id}/editOrganisator', name: 'app_organisator_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository , SluggerInterface $slugger): Response
     {
         $form = $this->createForm(UserType::class, $user );
