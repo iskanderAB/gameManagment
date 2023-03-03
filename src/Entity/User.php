@@ -17,6 +17,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 180, unique: true)]
+    private ?string $email = null;
+
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "vous devez mettre votre nom !")]
     #[Assert\Length( min: 3, minMessage: 'Le nom doit avoir au minimum 3 caracteres !',)]
@@ -24,42 +27,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "vous devez mettre votre prenom !")]
-    #[Assert\Length( min: 3, minMessage: 'Le prenom doit avoir au minimum 3 caracteres !',)]
-    private ?string $prenom = null;
-
-
-    #[ORM\Column]
-    #[Assert\NotBlank(message: "vous devez mettre votre telephone !")]
-    #[Assert\Range(
-        notInRangeMessage: 'Le numéro de telephone doit etre de 8 chiffres !',
-        min: 10000000,
-        max: 99999999,
-
-    )]
-    private ?int $tel = null;
-
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "vous devez mettre votre adresse !")]
-    #[Assert\Length( min: 3, minMessage: 'Adress doit avoir au minimum 3 caracteres !',)]
-
-    private ?string $adress = null;
-
-    #[ORM\Column(length: 150 , unique: true)]
-    #[Assert\Email(message: "L'Email {{ value }} n'est pas un Email valide !")]
-    #[Assert\NotBlank(message: "vous devez mettre votre Email !")]
-    private ?string $email = null;
-
-    #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "vous devez mettre votre mot de passe!!!")]
     #[Assert\Length( min: 8, minMessage: 'Mode de passe doit avoir au minimum 8 caracteres !',)]
     private ?string $password = null;
 
     #[ORM\Column(type: 'json')]
-    private $roles = [];
+    private ?array $roles = [];
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image  ="default.png";
+
+    #[ORM\Column(length: 255)]
+    private ?string $phone = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $address = null;
 
     public function getImage(): ?string
     {
@@ -89,41 +71,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getTel(): ?int
-    {
-        return $this->tel;
-    }
-
-    public function setTel(int $tel): self
-    {
-        $this->tel = $tel;
-
-        return $this;
-    }
-
-    public function getAdress(): ?string
-    {
-        return $this->adress;
-    }
-
-    public function setAdress(string $adress): self
-    {
-        $this->adress = $adress;
-
-        return $this;
-    }
 
     public function getEmail(): ?string
     {
@@ -185,5 +132,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
     }
 }

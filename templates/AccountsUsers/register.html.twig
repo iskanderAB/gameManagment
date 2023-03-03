@@ -26,7 +26,7 @@
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-4 pb-3">Sign Up</h4>
-                                        <form>
+                                        <form method="post">
 
                                         <div class="form-group">
                                             <input type="text" name="logname" class="form-style" placeholder="Nom & Prénom" id="logname" autocomplete="off">
@@ -55,13 +55,8 @@
                                             <input type="password" name="logpassconf" class="form-style" placeholder="Confirmer Mot De Passe" id="logpassconf" autocomplete="off">
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
+                                            <button  type='submit' class="btn mt-4">submit</button>
                                         </form>
-
-
-
-
-
-                                        <a href="{{path('app_login')}}" class="btn mt-4">submit</a>
                                         <p class="mb-0 mt-4 text-center"><a href="{{ path('homepage') }}" class="link">Retour à l'accueil</a></p>
 
                                     </div>
